@@ -4,12 +4,13 @@
     "strict": true,
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
       ]
     }
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/shared/assets/icons/interface/ArrowRight.tsz"
   ]
 }

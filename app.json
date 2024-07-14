@@ -16,7 +16,12 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.Habits"
+      "bundleIdentifier": "com.anonymous.Habits",
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": [
+          "mailto"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -32,6 +37,14 @@
       "eas": {
         "projectId": "485a1d4a-dab9-4389-bd21-6975251348ac"
       }
-    }
+    },
+    "plugins": [
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "Allow $(PRODUCT_NAME) to access your contacts."
+        }
+      ]
+    ]
   }
 }

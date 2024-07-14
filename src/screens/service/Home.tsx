@@ -1,34 +1,51 @@
-import { ActionSheetIOS, Button, ScrollView, Text, View } from 'react-native'
-import React, { useState } from 'react'
-import { ScreenContent } from '@/src/shared/ui/ScreenContent'
-import { HomeHeader } from '@/src/entities/header'
-import { TimeList } from '@/src/widget/time-list'
-import { TodayHabits } from '@/src/widget/today-habits'
-import { BottomCalendar } from '@/src/widget/bottom-calendar'
-import { CounterSheet } from '@/src/entities/counter-sheet'
-import { StatusHabits } from '@/src/widget/status-habits'
-
+import { ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { ScreenContent } from "@/shared/ui/ScreenContent";
+import { HomeHeader } from "@/entities/header";
+import { TimeList } from "@/widget/time-list";
+import { TodayHabits } from "@/widget/today-habits";
+import { BottomCalendar } from "@/widget/bottom-calendar";
+import { StatusHabits } from "@/widget/status-habits";
+import { CounterSheet } from "@/features/habit-management";
+import { useHabits } from "@/features/habit-management/lib/hooks/useHabits";
+import { EmptyHabits } from "@/shared/ui/Animations";
+import { useHabitStore } from "@/entities/habit/lib/state/HabitStore";
 const Home = () => {
-    return (
-        <>
-            <ScreenContent px={20}>
-                <HomeHeader />
-                <TimeList />
-                <ScrollView
-                    showsVerticalScrollIndicator={false}
-                    style={{
-                        marginBottom: 40
-                    }}
-                >
-                    <TodayHabits />
-                    <StatusHabits />
-                    <CounterSheet />
-                </ScrollView>
-            </ScreenContent>
-            <BottomCalendar />
-        </>
+  const { isSuccess, data, isPending } = useHabits();
+  const { updateAllHabits } = useHabitStore();
 
-    )
-}
+  useEffect(() => {
+    if (isSuccess) {
+      updateAllHabits(data);
+    }
+  }, [isSuccess]);
 
-export default Home
+  if (isPending) return null;
+  return (
+    <>
+      <ScreenContent px={20}>
+        <HomeHeader />
+        <TimeList />
+        {data?.length !== 0 ? (
+          <ScrollView
+            style={
+              {
+                // marginBottom:50
+              }
+            }
+            showsVerticalScrollIndicator={false}
+          >
+            <TodayHabits />
+            <StatusHabits />
+            <CounterSheet />
+          </ScrollView>
+        ) : (
+          <EmptyHabits />
+        )}
+      </ScreenContent>
+      {data?.length != 0 && <BottomCalendar />}
+    </>
+  );
+};
+
+export default Home;

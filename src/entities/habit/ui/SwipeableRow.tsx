@@ -1,8 +1,14 @@
-import React, { useRef, PropsWithChildren } from 'react';
-import { Animated, StyleSheet, View, I18nManager, TouchableOpacity } from 'react-native';
-import { RectButton, Swipeable } from 'react-native-gesture-handler';
-import colors from '@/src/shared/lib/theme/colors';
-import { Complete, Fail, Filter } from '@/src/shared/assets';
+import React, { useRef, PropsWithChildren } from "react";
+import {
+  Animated,
+  StyleSheet,
+  View,
+  I18nManager,
+  TouchableOpacity,
+} from "react-native";
+import { RectButton, Swipeable } from "react-native-gesture-handler";
+import colors from "@/shared/lib/theme/colors";
+import { Complete, Fail, Filter } from "@/shared/assets";
 
 type Props = {
   children: React.ReactNode;
@@ -29,16 +35,19 @@ const SwipeableRow: React.FC<Props> = ({ children, onDelete, onArchive }) => {
     return (
       <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }}>
         <TouchableOpacity
-          style={[styles.action, {
-            backgroundColor: color,
-            borderTopLeftRadius: index === 1 ? 15 : 0,
-            borderBottomLeftRadius: index === 1 ? 15 : 0,
-            borderTopRightRadius: index !== 1 ? 15 : 0,
-            borderBottomRightRadius: index !== 1 ? 15 : 0,
-          }]}
-          onPress={()=>{
-            swipeableRowRef.current?.close()
-            onPress && onPress()
+          style={[
+            styles.action,
+            {
+              backgroundColor: color,
+              borderTopLeftRadius: index === 1 ? 15 : 0,
+              borderBottomLeftRadius: index === 1 ? 15 : 0,
+              borderTopRightRadius: index !== 1 ? 15 : 0,
+              borderBottomRightRadius: index !== 1 ? 15 : 0,
+            },
+          ]}
+          onPress={() => {
+            swipeableRowRef.current?.close();
+            onPress && onPress();
           }}
         >
           {icon}
@@ -54,12 +63,20 @@ const SwipeableRow: React.FC<Props> = ({ children, onDelete, onArchive }) => {
     <View
       style={{
         width: 90,
-        flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+        flexDirection: I18nManager.isRTL ? "row-reverse" : "row",
         marginLeft: -10,
         zIndex: 1,
       }}
     >
-      {renderAction(2, 'Fail', `${colors.error}`, 50, progress, <Fail size={25} color={colors.white} />, onDelete)}
+      {renderAction(
+        2,
+        "Fail",
+        `${colors.error}`,
+        50,
+        progress,
+        <Fail size={25} color={colors.white} />,
+        onDelete
+      )}
     </View>
   );
 
@@ -70,12 +87,20 @@ const SwipeableRow: React.FC<Props> = ({ children, onDelete, onArchive }) => {
     <View
       style={{
         width: 90,
-        flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+        flexDirection: I18nManager.isRTL ? "row-reverse" : "row",
         marginRight: -10,
         zIndex: 1,
       }}
     >
-      {renderAction(1, 'Archive', `${colors.success}`, -50, progress, <Complete size={25} color={colors.white} />, onArchive)}
+      {renderAction(
+        1,
+        "Archive",
+        `${colors.success}`,
+        -50,
+        progress,
+        <Complete size={25} color={colors.white} />,
+        onArchive
+      )}
     </View>
   );
 
@@ -96,14 +121,14 @@ const SwipeableRow: React.FC<Props> = ({ children, onDelete, onArchive }) => {
 
 const styles = StyleSheet.create({
   action: {
-    alignItems: 'center',
+    alignItems: "center",
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   actionText: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
     padding: 10,
   },
 });

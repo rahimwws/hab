@@ -1,3 +1,3 @@
 import TodayHabits from "./ui/TodayHabits";
 
-export { TodayHabits }
+export { TodayHabits}
