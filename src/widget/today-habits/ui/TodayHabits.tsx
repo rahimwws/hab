@@ -1,9 +1,8 @@
 import { View } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Typography } from "@/shared/ui/Typography";
 import colors from "@/shared/lib/theme/colors";
 import { Card } from "@/entities/habit";
-import { useHabitStore } from "@/entities/habit/lib/state/HabitStore";
 import today from "../model/format/today";
 import { useTimeStore } from "../../time-list";
 import { countSuccessHabits } from "../model/format/success-number";
@@ -11,23 +10,28 @@ import { useTodayDay } from "../lib/todayState";
 import { compareDate } from "../model/format/compareDate";
 import { statusForToday } from "@/shared/lib/complete";
 import { TodayAnimation } from "@/shared/ui/Animations";
+import { Habit } from "@/entities/habit/model/types/Habit";
 
-const TodayHabits = () => {
-  const { habits } = useHabitStore();
-  const { selectedTime } = useTimeStore();
+const TodayHabits = ({ habits }: { habits: Habit[] }) => {
   const [title, setTitle] = useState<string | false>(false);
-  const { todayDate } = useTodayDay();
+  const selectedTime = useTimeStore((store) => store.selectedTime);
+  const todayDate = useTodayDay((store) => store.todayDate);
+  const todayHabits = useMemo(
+    () => today({ habits, selectedTime, today: todayDate }),
+    [habits, selectedTime, todayDate]
+  );
+  const successNumber = useMemo(
+    () => countSuccessHabits(todayHabits),
+    [todayHabits]
+  );
+  const habitsDoing = useMemo(
+    () => todayHabits.filter((item) => statusForToday(item) === "doing"),
+    [todayHabits]
+  );
 
-  const todayHabits = today({ habits: habits, selectedTime, today: todayDate });
-
-  const successNumber = countSuccessHabits(todayHabits);
   useEffect(() => {
     setTitle(compareDate(title, todayDate));
   }, [todayDate]);
-  const habitsDoing = todayHabits.filter(
-    (item) => statusForToday(item) === "doing"
-  );
-
   return (
     <View
       style={{

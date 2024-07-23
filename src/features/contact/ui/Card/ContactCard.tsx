@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import colors from "@/shared/lib/theme/colors";
 import { Typography } from "@/shared/ui/Typography";
+import { Invite } from "@/shared/ui/Buttons";
 
 const ContactCard = ({
   name,
@@ -14,7 +15,6 @@ const ContactCard = ({
   number?: string;
   action?: () => void;
 }) => {
-  const [added, setAdded] = useState(false);
   return (
     <View
       style={{
@@ -33,42 +33,39 @@ const ContactCard = ({
           gap: 10,
         }}
       >
-        <Image
-          source={{ uri: image }}
-          style={{
-            width: 35,
-            height: 35,
-            borderRadius: 20,
-            zIndex: 1,
-          }}
-        />
+        {image ? (
+          <Image
+            source={{ uri: image }}
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 20,
+              zIndex: 1,
+            }}
+          />
+        ) : (
+          <View
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 20,
+              zIndex: 1,
+              backgroundColor: colors.gray200,
+            }}
+          ></View>
+        )}
         <View style={{}}>
           <Typography size={16} font="p-m" align="left">
             {name}
           </Typography>
-          <Typography size={14} font="p-m" align="left" color="gray400">
-            {number}
-          </Typography>
+          {number && (
+            <Typography size={14} font="p-m" align="left" color="gray400">
+              {number}
+            </Typography>
+          )}
         </View>
       </View>
-      <TouchableOpacity
-        style={{
-          paddingHorizontal: 15,
-          backgroundColor: added ? colors.success : colors.primary400,
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: 20,
-          height: 30,
-        }}
-        onPress={() => {
-          setAdded(true);
-          action && action();
-        }}
-      >
-        <Typography color="white" font="p-m" size={14}>
-          {added ? "Added" : "Invite"}
-        </Typography>
-      </TouchableOpacity>
+      <Invite action={action} />
     </View>
   );
 };

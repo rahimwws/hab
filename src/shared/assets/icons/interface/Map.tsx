@@ -1,14 +1,26 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Path, Svg } from 'react-native-svg'
+import { View, Text } from "react-native";
+import React from "react";
+import { Path, Svg } from "react-native-svg";
 
-const Map = ({color}:{color:string}) => {
-    return (
-        <Svg width="29" height="28" viewBox="0 0 29 28" fill="none" >
-            <Path d="M18 7V24.5M18 7L25 3.5V21L18 24.5M18 7L11 3.5M18 24.5L11 21M11 21L4 24.5V7L11 3.5M11 21V3.5" stroke={color} strokeWidth="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </Svg>
+const Map = ({ color }: { color: string }) => {
+  return (
+    <Svg width="27" height="27" viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+        stroke={color}
+        strokeWidth="1.5"
+        stroke-miterlimit="10"
+      />
+      <Path
+        d="M13.5 8C10.47 8 8 10.48 8 13.5C8 14.87 9.12 16 10.5 16C13.52 16 16 13.52 16 10.5C16 9.13 14.87 8 13.5 8Z"
+        stroke={color}
+        strokeWidth="1.5"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Svg>
+  );
+};
 
-    )
-}
-
-export default Map
+export default Map;

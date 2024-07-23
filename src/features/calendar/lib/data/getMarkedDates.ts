@@ -1,4 +1,4 @@
-import { Habit } from "@/entities/habit/model/types/habit";
+import { Habit } from "@/entities/habit/model/types/Habit";
 import { formatDate } from "../../model/format/formatDate";
 import colors from "@/shared/lib/theme/colors";
 

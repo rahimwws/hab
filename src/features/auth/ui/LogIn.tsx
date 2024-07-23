@@ -13,7 +13,7 @@ const Register = () => {
   const [password, setPassword] = useState<string>("");
   const { mutate, isError, isSuccess } = useLogin(email, password);
   useEffect(() => {
-    if (isSuccess) navigation.navigate("Service");
+    if (isSuccess) navigation.navigate("Screens");
   }, [isSuccess]);
   return (
     <>

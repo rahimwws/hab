@@ -1,4 +1,4 @@
-import { Habit } from "@/entities/habit/model/types/habit";
+import { Habit } from "@/entities/habit/model/types/Habit";
 
 export const getSuccessCount = (habits: Habit[]): number => {
   return habits.filter((habit) => habit.status === "Success").length;

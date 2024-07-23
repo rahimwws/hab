@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Switch } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
-import { Habit } from "@/entities/habit/model/types/habit";
+import { Habit } from "@/entities/habit/model/types/Habit";
 import { HabitSheet } from "@/shared/ui/BottomSheet/idnex";
 import { Card } from "@/entities/habit";
 import { Typography } from "@/shared/ui/Typography";

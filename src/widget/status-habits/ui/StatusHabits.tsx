@@ -7,6 +7,7 @@ import { checkStatus } from "../lib/check-status";
 
 const StatusHabits = () => {
   const { habits } = useHabitStore();
+  if (!habits) return;
   const sections = checkStatus(habits);
   if (habits.length === 0) return null;
   return (

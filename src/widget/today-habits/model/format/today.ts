@@ -1,4 +1,4 @@
-import { Habit } from "@/entities/habit/model/types/habit";
+import { Habit } from "@/entities/habit/model/types/Habit";
 
 const isTodayInDateRange = (
   startDate: Date,

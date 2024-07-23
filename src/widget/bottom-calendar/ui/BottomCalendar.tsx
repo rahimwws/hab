@@ -8,10 +8,11 @@ import days from "../config/days";
 import { Plus } from "@/shared/assets";
 import todayDay from "../config/todayDay";
 import { scrollToIndex } from "../model/scrollToIndex";
-import { formatDateSheet } from "@/features/calendar/model/format/formatDate";
 import { useTodayDay } from "../../today-habits/lib/todayState";
+import { useAppNavigation } from "@/shared/config/navigation";
 
 const BottomCalendar = () => {
+  const navigation = useAppNavigation();
   const createDateFromDay = (day: number) => {
     const today = new Date();
     return new Date(today.getFullYear(), today.getMonth(), day);
@@ -90,6 +91,7 @@ const BottomCalendar = () => {
             alignItems: "center",
             justifyContent: "center",
           }}
+          onPress={() => navigation.navigate("CreateHabit")}
         >
           <Plus color={colors.white} size={25} />
         </TouchableOpacity>

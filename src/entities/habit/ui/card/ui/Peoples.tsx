@@ -22,42 +22,12 @@ const Peoples = ({
     <View
       style={{
         flexDirection: "row",
+        alignItems: "center",
       }}
     >
-      <Image
-        source={require("@/shared/assets/images/avatar.jpg")}
-        style={{
-          width: 25,
-          height: 25,
-          borderRadius: 20,
-        }}
-      />
-      <Image
-        source={require("@/shared/assets/images/avatar.jpg")}
-        style={{
-          width: 25,
-          height: 25,
-          borderRadius: 20,
-          zIndex: 1,
-          marginLeft: -10,
-        }}
-      />
-      <View
-        style={{
-          backgroundColor: colors.gray200,
-          alignItems: "center",
-          justifyContent: "center",
-          width: 25,
-          height: 25,
-          borderRadius: 25,
-          zIndex: 1,
-          marginLeft: -10,
-        }}
-      >
-        <Typography size={13} color="primary400" font="p-m">
-          +{quantity}
-        </Typography>
-      </View>
+      <Typography size={14} font="p-m" color="primary400">
+        {quantity === 1 ? `${quantity} Friend` : `${quantity} Friends`}
+      </Typography>
     </View>
   );
 };

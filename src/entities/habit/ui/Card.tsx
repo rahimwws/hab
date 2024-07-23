@@ -2,26 +2,30 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import colors from "@/shared/lib/theme/colors";
 import { Typography } from "@/shared/ui/Typography";
-import { Button } from "@/features/habit-management";
 import Peoples from "./card/ui/Peoples";
-import { Habit } from "../model/types/habit";
+import { Habit } from "../model/types/Habit";
 import { ProgressFormat } from "../lib/format/ProgressFormat";
 import SwipeableRow from "./SwipeableRow";
 import { useHabitStore } from "../lib/state/HabitStore";
 import Progress from "./card/ui/Progress";
 import Status from "./card/ui/Status";
+
+import { dateFormat } from "../model/date/dateFormat";
+import { statusForToday } from "@/shared/lib/complete";
 import {
   useAddCompleteDate,
   useStatus,
-} from "@/features/habit-management/lib/hooks/mutation";
-import { dateFormat } from "../model/date/dateFormat";
-import { statusForToday } from "@/shared/lib/complete";
+  useTimerLeft,
+} from "@/features/management/lib/hooks/mutation";
+import { Button } from "@/features/management";
+import { useAppNavigation } from "@/shared/config/navigation";
 
 const Card = ({ card }: { card: Habit }) => {
+  const navigation = useAppNavigation();
   const { failedItem, successItem } = useHabitStore();
   const { mutate } = useStatus(card.id);
   const { mutate: complete } = useAddCompleteDate();
-
+  const { mutate: changeRemain } = useTimerLeft();
   const currentStatus = statusForToday(card);
 
   return (
@@ -30,13 +34,17 @@ const Card = ({ card }: { card: Habit }) => {
         failedItem(card);
         mutate({ status: "failed" });
       }}
-      onArchive={() => {
+      onArchive={async () => {
+        if (card.type === "timer") {
+          changeRemain({ id: card.id, remain: 15 });
+        }
         successItem(card);
         complete({ id: card.id, date: dateFormat(new Date()) });
       }}
     >
       <TouchableOpacity
         style={{
+          backgroundColor: colors.white,
           width: "100%",
           zIndex: 1,
           borderWidth: 1,
@@ -47,8 +55,8 @@ const Card = ({ card }: { card: Habit }) => {
           paddingHorizontal: 10,
           justifyContent: "space-between",
           flexDirection: "row",
-          backgroundColor: colors.white,
         }}
+        onPress={() => navigation.navigate("HabitDetail", { habit: card })}
       >
         <View
           style={{

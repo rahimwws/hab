@@ -29,7 +29,7 @@ const CreatePassword = () => {
     }
   };
   useEffect(() => {
-    if (isSuccess) navigation.navigate("Service");
+    if (isSuccess) navigation.navigate("Screens");
     if (errorMessage) setError(true);
   }, [errorMessage, isSuccess]);
   return (

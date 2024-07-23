@@ -4,11 +4,13 @@ import colors from "@/shared/lib/theme/colors";
 import { LightHeptic } from "@/shared/lib/heptics/LightHeptic";
 
 const SmallButton = ({
+  showBorder = true,
   icon,
   action,
 }: {
   icon: React.ReactNode;
   action?: Function;
+  showBorder?: boolean;
 }) => {
   const HandleClick = () => {
     LightHeptic();
@@ -22,7 +24,7 @@ const SmallButton = ({
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 12,
-        borderWidth: 1,
+        borderWidth: showBorder ? 1 : 0,
         borderColor: colors.gray200,
       }}
       onPress={HandleClick}

@@ -10,7 +10,7 @@ export interface Habit {
   total: number;
   type: "timer" | "counter" | "default";
   emoji?: string;
-  descriptions?: string;
+  description?: string;
   measure?: string;
   startDate: Date;
   endDate: Date;
@@ -19,9 +19,12 @@ export interface Habit {
   public: boolean;
   relations: number[];
   completedDays: completeDays[];
+  category: string;
 }
 
 export interface Friend {
+  id: number;
   name: string;
   avatar: string;
+  username: string;
 }

@@ -5,7 +5,7 @@ import { Typography } from "@/shared/ui/Typography";
 import { SmallButton } from "@/shared/ui/Buttons";
 import { ArrowDown, Badge, Error, Verified } from "@/shared/assets";
 import Animated from "react-native-reanimated";
-import { Habit } from "@/entities/habit/model/types/habit";
+import { Habit } from "@/entities/habit/model/types/Habit";
 import {
   getFailedCount,
   getSuccessCount,

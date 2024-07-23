@@ -8,6 +8,7 @@ import { useHabitStore } from "@/entities/habit/lib/state/HabitStore";
 
 const Calendar = () => {
   const { habits } = useHabitStore();
+  if (!habits) return null;
   return (
     <ScreenContent>
       <StackHeader title="Calendar" />

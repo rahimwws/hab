@@ -2,8 +2,8 @@ import React, { useCallback, useState } from "react";
 import { ScreenContent } from "@/shared/ui/ScreenContent";
 import { Back, LargeButton } from "@/shared/ui/Buttons";
 import { View } from "react-native";
-import { useTimerState } from "@/features/habit-management/lib/state/timerState";
-import { Countdown } from "@/features/habit-management";
+import { useTimerState } from "@/features/management/lib/state/timerState";
+import { Countdown } from "@/features/management";
 import { StackHeader } from "@/entities/header";
 import { Typography } from "@/shared/ui/Typography";
 

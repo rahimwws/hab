@@ -22,34 +22,48 @@ import Verified from "./icons/awards/Verified";
 import Error from "./icons/awards/Error";
 import Share from "./icons/interface/Share";
 import ArrowRight from "./icons/interface/ArrowRight";
-
-
-
+import Search from "./icons/interface/Search";
+import Feed from "./icons/interface/Feed";
+import Faq from "./icons/interface/Faq";
+import Notification from "./icons/interface/Notification";
+import Privacy from "./icons/interface/Privacy";
+import EmptyRequests from "./images/svg/EmptyRequests";
+import Morning from "./images/journey/Morning";
+import More from "./icons/interface/More";
+import Todo from "./icons/interface/Todo";
 
 export {
-    HomeIcon,
-    UsersIcon,
-    UserIcon,
-    Map,
-    Pen,
-    Calendar,
-    Sun,
-    Filter,
-    Afternoon,
-    Moon,
-    Fail,
-    Plus,
-    Complete,
-    Timer,
-    ArrowLeft,
-    Close,
-    Award,
-    ArrowDown,
-    Badge,
-    Verified,
-    Error,
-    Request,
-    Share,
-    ArrowRight,
-}
-
+  HomeIcon,
+  UsersIcon,
+  UserIcon,
+  Map,
+  Pen,
+  Calendar,
+  Sun,
+  Filter,
+  Afternoon,
+  Moon,
+  Fail,
+  Plus,
+  Complete,
+  Timer,
+  ArrowLeft,
+  Close,
+  Award,
+  ArrowDown,
+  Badge,
+  Verified,
+  Error,
+  Request,
+  Share,
+  ArrowRight,
+  Search as SearchSvg,
+  EmptyRequests,
+  Feed,
+  Faq,
+  Notification,
+  Privacy,
+  Morning,
+  More,
+  Todo,
+};

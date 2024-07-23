@@ -3,7 +3,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import colors from "@/shared/lib/theme/colors";
 import { HomeIcon, Map, UserIcon, UsersIcon } from "@/shared/assets";
 import { Platform } from "react-native";
-import { Friends, Home, Journey } from "@/screens";
+import { Friends, Home, Journey, Profile } from "@/screens";
+import HomeStack from "../stack/StackScreens";
 const ServiceTab = createBottomTabNavigator();
 const Service = () => {
   return (
@@ -51,7 +52,7 @@ const Service = () => {
       />
       <ServiceTab.Screen
         name="Profile"
-        component={Home}
+        component={Profile}
         options={{
           tabBarIcon: ({ color }) => {
             return <UserIcon color={color} />;

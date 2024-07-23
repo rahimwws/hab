@@ -19,16 +19,21 @@ const StackHeader = ({
   return (
     <View
       style={{
+        zIndex: 1,
+        marginTop: "2%",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: align,
+        position: "relative",
       }}
     >
       {back && <Back action={action} />}
       <Typography font="p-b" size={24}>
         {title}
       </Typography>
-      {customButton}
+      {customButton && (
+        <View style={{ position: "absolute", right: 0 }}>{customButton}</View>
+      )}
     </View>
   );
 };

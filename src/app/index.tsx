@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { Introduction, Service } from "./navigation";
+import { Introduction, Main, Service } from "./navigation";
 import { useFonts } from "expo-font";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -9,7 +9,13 @@ import {
   QueryClientProvider,
   useQueryClient,
 } from "@tanstack/react-query";
+import { Animated } from "react-native";
+
 const Index = () => {
+  const av = new Animated.Value(0);
+  av.addListener(() => {
+    return;
+  });
   const [fontsLoaded] = useFonts({
     "p-r": require("../../assets/fonts/Poppins-Regular.ttf"),
     "p-m": require("../../assets/fonts/Poppins-Medium.ttf"),
@@ -23,7 +29,7 @@ const Index = () => {
         <NavigationContainer>
           <GestureHandlerRootView>
             <BottomSheetModalProvider>
-              <Introduction />
+              <Main />
             </BottomSheetModalProvider>
           </GestureHandlerRootView>
         </NavigationContainer>

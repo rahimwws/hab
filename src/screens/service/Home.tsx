@@ -1,41 +1,48 @@
-import { ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
+import { RefreshControl, ScrollView } from "react-native";
 import { ScreenContent } from "@/shared/ui/ScreenContent";
 import { HomeHeader } from "@/entities/header";
 import { TimeList } from "@/widget/time-list";
 import { TodayHabits } from "@/widget/today-habits";
 import { BottomCalendar } from "@/widget/bottom-calendar";
 import { StatusHabits } from "@/widget/status-habits";
-import { CounterSheet } from "@/features/habit-management";
-import { useHabits } from "@/features/habit-management/lib/hooks/useHabits";
+import { CounterSheet } from "@/features/management";
+import { useHabits } from "@/features/management/lib/hooks/useHabits";
 import { EmptyHabits } from "@/shared/ui/Animations";
 import { useHabitStore } from "@/entities/habit/lib/state/HabitStore";
+
 const Home = () => {
-  const { isSuccess, data, isPending } = useHabits();
-  const { updateAllHabits } = useHabitStore();
+  const { refetch, data, isSuccess } = useHabits();
+  const { habits, updateAllHabits } = useHabitStore();
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
-    if (isSuccess) {
+    if (isSuccess && data) {
       updateAllHabits(data);
     }
-  }, [isSuccess]);
+  }, [isSuccess, data, updateAllHabits]);
 
-  if (isPending) return null;
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await refetch();
+    setRefreshing(false);
+  };
+
+  if (!habits) return null;
+
   return (
     <>
       <ScreenContent px={20}>
         <HomeHeader />
         <TimeList />
-        {data?.length !== 0 ? (
+        {habits.length > 0 ? (
           <ScrollView
-            style={
-              {
-                // marginBottom:50
-              }
-            }
             showsVerticalScrollIndicator={false}
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
           >
-            <TodayHabits />
+            <TodayHabits habits={habits} />
             <StatusHabits />
             <CounterSheet />
           </ScrollView>
@@ -43,7 +50,7 @@ const Home = () => {
           <EmptyHabits />
         )}
       </ScreenContent>
-      {data?.length != 0 && <BottomCalendar />}
+      {habits.length > 0 && <BottomCalendar />}
     </>
   );
 };
