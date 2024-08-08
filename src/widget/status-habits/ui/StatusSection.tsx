@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { Typography } from "@/shared/ui/Typography";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 import { Card } from "@/entities/habit";
 import colors from "@/shared/lib/theme/colors";
 import { statusForToday } from "@/shared/lib/complete";

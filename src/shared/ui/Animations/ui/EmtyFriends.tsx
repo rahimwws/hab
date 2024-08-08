@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import LottieView from "lottie-react-native";
 import { LargeButton } from "../../Buttons";
 
-const EmptyFriends = () => {
+const EmptyFriends = ({ isRelation = false }: { isRelation?: boolean }) => {
   const animation = useRef<LottieView>(null);
   return (
     <View
@@ -25,7 +25,11 @@ const EmptyFriends = () => {
         source={require("../../../assets/json/friends.json")}
       />
 
-      <LargeButton text="Search new users..." isRoute route="AddFriend" />
+      <LargeButton
+        text={isRelation ? "You need to have friends" : "Search new users..."}
+        isRoute
+        route={isRelation ? "Friends" : "AddFriend"}
+      />
     </View>
   );
 };

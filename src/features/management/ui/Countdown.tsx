@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 import Animated from "react-native-reanimated";
 import { Typography } from "@/shared/ui/Typography";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 import { formatTime } from "../model/time/formatTime";
 import { subtractSecondsFromRemain } from "../lib/timer/subtractSecondsFromRemain";
 import { useTimerState } from "../lib/state/timerState";

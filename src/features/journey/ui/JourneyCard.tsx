@@ -4,7 +4,7 @@ import { Typography } from "@/shared/ui/Typography";
 import { Morning } from "@/shared/assets";
 import { BorderedButton } from "@/shared/ui/Buttons";
 import { Journey } from "../model/types";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 
 const JourneyCard = ({
   journey,

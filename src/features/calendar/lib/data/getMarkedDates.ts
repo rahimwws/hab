@@ -1,4 +1,4 @@
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 import { formatDate } from "../../model/format/formatDate";
 import colors from "@/shared/lib/theme/colors";
 
@@ -8,7 +8,7 @@ const getDatesBetween = (startDate: Date, endDate: Date): string[] => {
   const end = new Date(endDate);
 
   while (currentDate <= end) {
-    dates.push(formatDate(currentDate.toISOString()));
+    dates.push(formatDate(currentDate));
     currentDate.setDate(currentDate.getDate() + 1);
   }
 
@@ -38,7 +38,7 @@ export const getMarkedDates = (
         }
         markedDates[date].dots.push({
           key: habit.name,
-          color: colors[color],
+          color: color,
           selectedDotColor: color,
         });
       });

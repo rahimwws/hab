@@ -1,7 +1,7 @@
 import { RefreshControl, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { ScreenContent } from "@/shared/ui/ScreenContent";
-import { StackHeader } from "@/entities/header";
+import { StackHeader } from "@/shared/ui/Header";
 import { SmallButton } from "@/shared/ui/Buttons";
 import { Request } from "@/shared/assets";
 import { ShareName } from "@/entities/share";

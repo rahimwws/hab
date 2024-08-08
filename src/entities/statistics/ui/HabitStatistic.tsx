@@ -5,13 +5,13 @@ import { Typography } from "@/shared/ui/Typography";
 import { SmallButton } from "@/shared/ui/Buttons";
 import { ArrowDown, Badge, Error, Verified } from "@/shared/assets";
 import Animated from "react-native-reanimated";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 import {
   getFailedCount,
   getSuccessCount,
   getSuccessRate,
 } from "../lib/summary/summary";
-import { useExpandAnimation } from "../lib/animation/useExpandAnimation";
+import { useExpandAnimation } from "../lib/animation";
 
 const HabitStatistic = ({ habits }: { habits: Habit[] }) => {
   const { toggleExpand, animatedStyle } = useExpandAnimation(0, 130);

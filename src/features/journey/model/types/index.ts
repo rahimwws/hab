@@ -1,4 +1,4 @@
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 import { User } from "@/features/profile/model/types/User";
 
 export interface Journey {

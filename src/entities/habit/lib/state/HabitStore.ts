@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Habit } from "../../model/types/Habit";
+import { Habit } from "../../model/types";
 import { LightHeptic } from "@/shared/lib/heptics/LightHeptic";
 import { dateFormat } from "../../model/date/dateFormat";
 

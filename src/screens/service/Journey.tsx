@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ScreenContent } from "@/shared/ui/ScreenContent";
-import { StackHeader } from "@/entities/header";
+import { StackHeader } from "@/shared/ui/Header";
 import { Card, Sheet } from "@/features/journey";
 import { useGetJourney } from "@/features/journey/lib/hooks";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 const Journey = () => {
   const [habit, setHabit] = useState<Habit>();
   const { data } = useGetJourney();

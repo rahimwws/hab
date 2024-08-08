@@ -3,7 +3,7 @@ import React from "react";
 import { Complete, Fail, Plus, Timer } from "@/shared/assets";
 import colors from "@/shared/lib/theme/colors";
 import { useAppNavigation } from "@/shared/config/navigation";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 import { useCounterState } from "@/features/management/lib/state/counterState";
 import { useTimerState } from "../lib/state/timerState";
 

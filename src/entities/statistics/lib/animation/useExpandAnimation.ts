@@ -1,5 +1,9 @@
-import { useState } from 'react';
-import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { useState } from "react";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 
 export const useExpandAnimation = (initialHeight = 0, expandedHeight = 130) => {
   const [expanded, setExpanded] = useState(false);
@@ -18,6 +22,7 @@ export const useExpandAnimation = (initialHeight = 0, expandedHeight = 130) => {
 
   return {
     toggleExpand,
-    animatedStyle
+    animatedStyle,
+    expanded,
   };
 };

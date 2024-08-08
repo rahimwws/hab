@@ -1,8 +1,8 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
-import { HabitSheet } from "@/shared/ui/BottomSheet/idnex";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { HabitSheet } from "@/shared/ui/BottomSheet";
+import { Habit } from "@/entities/habit/model/types";
 import { LargeButton } from "@/shared/ui/Buttons";
 import { Typography } from "@/shared/ui/Typography";
 import colors from "@/shared/lib/theme/colors";

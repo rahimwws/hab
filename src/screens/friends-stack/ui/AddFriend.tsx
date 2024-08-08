@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ScreenContent } from "@/shared/ui/ScreenContent";
-import { StackHeader } from "@/entities/header";
+import { StackHeader } from "@/shared/ui/Header";
 import { Search } from "@/shared/ui/Inputs";
 import { KeyboardAvoidingView, View } from "react-native";
 import { LargeButton } from "@/shared/ui/Buttons";

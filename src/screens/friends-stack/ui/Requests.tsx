@@ -6,7 +6,7 @@ import {
 } from "@/entities/friends/lib/hooks/requests";
 import { Typography } from "@/shared/ui/Typography";
 import { ScreenContent } from "@/shared/ui/ScreenContent";
-import { StackHeader } from "@/entities/header";
+import { StackHeader } from "@/shared/ui/Header";
 import { EmptyRequests, SearchSvg } from "@/shared/assets";
 import { SmallButton } from "@/shared/ui/Buttons";
 import { useAppNavigation } from "@/shared/config/navigation";

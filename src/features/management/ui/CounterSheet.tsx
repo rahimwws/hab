@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { HabitSheet } from "@/shared/ui/BottomSheet/idnex";
+import { HabitSheet } from "@/shared/ui/BottomSheet";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { useCounterState } from "../lib/state/counterState";
 import { useHabitStore } from "@/entities/habit/lib/state/HabitStore";

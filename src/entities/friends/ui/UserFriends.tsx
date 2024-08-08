@@ -6,7 +6,13 @@ import colors from "@/shared/lib/theme/colors";
 import { EmptyFriends } from "@/shared/ui/Animations";
 import { useFriends } from "../lib/hooks/friends";
 
-const UserFriends = () => {
+const UserFriends = ({
+  isRelation = false,
+  habitId = false,
+}: {
+  isRelation?: boolean;
+  habitId?: number | false;
+}) => {
   const { data } = useFriends();
 
   return (
@@ -15,11 +21,18 @@ const UserFriends = () => {
         Your Friends
       </Typography>
       {data?.length !== 0 ? (
-        data?.map((friend, key) => <FriendCard key={key} friend={friend} />)
+        data?.map((friend, key) => (
+          <FriendCard
+            key={key}
+            friend={friend}
+            isRelation={isRelation}
+            habitId={habitId}
+          />
+        ))
       ) : (
-        <EmptyFriends />
+        <EmptyFriends isRelation={isRelation} />
       )}
-      {data?.length !== 0 && (
+      {data?.length !== 0 && !isRelation && (
         <TouchableOpacity
           style={{
             backgroundColor: colors.gray100,

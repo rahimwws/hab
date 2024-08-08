@@ -1,4 +1,4 @@
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 import { statusForToday } from "@/shared/lib/complete";
 import colors from "@/shared/lib/theme/colors";
 

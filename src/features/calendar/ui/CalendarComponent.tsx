@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Calendar, DateData } from "react-native-calendars";
 import colors from "@/shared/lib/theme/colors";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 import CalendarSheet from "./CalendarSheet";
 import { LightHeptic } from "@/shared/lib/heptics/LightHeptic";
 import { formatDate } from "../model/format/formatDate";

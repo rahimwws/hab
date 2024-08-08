@@ -4,9 +4,14 @@ import colors from "@/shared/lib/theme/colors";
 import { HomeIcon, Map, UserIcon, UsersIcon } from "@/shared/assets";
 import { Platform } from "react-native";
 import { Friends, Home, Journey, Profile } from "@/screens";
-import HomeStack from "../stack/StackScreens";
+import { useHabits } from "@/features/management/lib/hooks";
+import { useFocusEffect } from "@react-navigation/native";
 const ServiceTab = createBottomTabNavigator();
 const Service = () => {
+  const { refetch } = useHabits();
+  useFocusEffect(() => {
+    refetch();
+  });
   return (
     <ServiceTab.Navigator
       screenOptions={{

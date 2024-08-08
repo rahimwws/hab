@@ -12,6 +12,7 @@ import Plus from "./icons/interface/Plus";
 import Fail from "./icons/interface/Fail";
 import Complete from "./icons/interface/Complete";
 import ArrowDown from "./icons/interface/ArrowDown";
+import ArrowUp from "./icons/interface/ArrowUp";
 import Request from "./icons/interface/Request";
 import Moon from "./icons/time/Moon";
 import Afternoon from "./icons/time/Afternoon";
@@ -31,6 +32,8 @@ import EmptyRequests from "./images/svg/EmptyRequests";
 import Morning from "./images/journey/Morning";
 import More from "./icons/interface/More";
 import Todo from "./icons/interface/Todo";
+import Minus from "./icons/interface/Minus";
+import Trash from "./icons/interface/Trash";
 
 export {
   HomeIcon,
@@ -66,4 +69,7 @@ export {
   Morning,
   More,
   Todo,
+  ArrowUp,
+  Minus,
+  Trash,
 };

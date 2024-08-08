@@ -1,4 +1,6 @@
-export default {
+const colors = {
+  primary50: "#edefff",
+  primary100: "#dee2ff",
   primary400: "#6B5AFA",
   primary900: "#22184E",
   gray400: "#98A2B3",
@@ -9,6 +11,13 @@ export default {
   black: "#000",
   error: "#F2404C",
   success: "#12B76A",
-  success100:"#d1fadf",
+  success100: "#d1fadf",
   yellow: "#FBA944",
+};
+
+export default colors;
+
+export interface ColorOption {
+  name: string;
+  code: keyof typeof colors;
 }

@@ -3,7 +3,7 @@ import React from "react";
 import colors from "@/shared/lib/theme/colors";
 import { Typography } from "@/shared/ui/Typography";
 import Peoples from "./card/ui/Peoples";
-import { Habit } from "../model/types/Habit";
+import { Habit } from "../model/types";
 import { ProgressFormat } from "../lib/format/ProgressFormat";
 import SwipeableRow from "./SwipeableRow";
 import { useHabitStore } from "../lib/state/HabitStore";
@@ -91,8 +91,9 @@ const Card = ({ card }: { card: Habit }) => {
           }}
         >
           <Peoples
+            id={card.id}
             status={card.public ? "public" : "private"}
-            quantity={card.relations.length}
+            quantity={card.relations ? card.relations.length : 0}
           />
           <Button status={currentStatus} type={card.type} card={card} />
         </View>

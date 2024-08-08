@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Calendar, CreateHabit, HabitDetail, Home, Timer } from "@/screens";
+import { Calendar, Edit, HabitDetail, Home, Timer } from "@/screens";
 import Service from "../main/Service";
 import { AddFriend, FriendDetail, Requests } from "@/screens/friends-stack";
 
@@ -18,8 +18,9 @@ const StackScreens = () => {
       <stack.Screen name="AddFriend" component={AddFriend} />
       <stack.Screen name="Requests" component={Requests} />
       <stack.Screen name="Timer" component={Timer} />
-      <stack.Screen name="CreateHabit" component={CreateHabit} />
+      <stack.Screen name="CreateHabit" component={Edit} />
       <stack.Screen name="HabitDetail" component={HabitDetail} />
+      <stack.Screen name="Edit" component={Edit} />
     </stack.Navigator>
   );
 };

@@ -10,7 +10,7 @@ import { useTodayDay } from "../lib/todayState";
 import { compareDate } from "../model/format/compareDate";
 import { statusForToday } from "@/shared/lib/complete";
 import { TodayAnimation } from "@/shared/ui/Animations";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 
 const TodayHabits = ({ habits }: { habits: Habit[] }) => {
   const [title, setTitle] = useState<string | false>(false);

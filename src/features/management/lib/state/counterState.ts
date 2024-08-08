@@ -1,4 +1,4 @@
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 import { create } from "zustand";
 import { useStatus } from "../hooks/mutation";
 

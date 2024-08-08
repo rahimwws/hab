@@ -1,5 +1,5 @@
 import { dateFormat } from "@/entities/habit/model/date/dateFormat";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 
 export const statusForToday = (
   habit: Habit

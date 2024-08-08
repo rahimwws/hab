@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { RefreshControl, ScrollView } from "react-native";
 import { ScreenContent } from "@/shared/ui/ScreenContent";
-import { HomeHeader } from "@/entities/header";
+import { HomeHeader } from "@/shared/ui/Header";
 import { TimeList } from "@/widget/time-list";
 import { TodayHabits } from "@/widget/today-habits";
 import { BottomCalendar } from "@/widget/bottom-calendar";
 import { StatusHabits } from "@/widget/status-habits";
 import { CounterSheet } from "@/features/management";
-import { useHabits } from "@/features/management/lib/hooks/useHabits";
+import { useHabits } from "@/features/management/lib/hooks";
 import { EmptyHabits } from "@/shared/ui/Animations";
 import { useHabitStore } from "@/entities/habit/lib/state/HabitStore";
 
@@ -29,7 +29,6 @@ const Home = () => {
   };
 
   if (!habits) return null;
-
   return (
     <>
       <ScreenContent px={20}>

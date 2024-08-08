@@ -3,14 +3,19 @@ import React from "react";
 import { Path, Svg } from "react-native-svg";
 import colors from "@/shared/lib/theme/colors";
 
-const Todo = () => {
+const Todo = ({ position = true }: { position?: boolean }) => {
   return (
     <Svg
       width="25"
       height="24"
       viewBox="0 0 25 24"
       fill="none"
-      style={{ position: "absolute", top: 10, left: 10, zIndex: 1 }}
+      style={{
+        position: position ? "absolute" : "static",
+        top: position ? 10 : 0,
+        left: position ? 10 : 0,
+        zIndex: position ? 1 : 0,
+      }}
     >
       <Path
         d="M12.8701 8.88H18.1201"

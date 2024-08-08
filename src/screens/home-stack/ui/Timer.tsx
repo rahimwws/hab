@@ -4,7 +4,7 @@ import { Back, LargeButton } from "@/shared/ui/Buttons";
 import { View } from "react-native";
 import { useTimerState } from "@/features/management/lib/state/timerState";
 import { Countdown } from "@/features/management";
-import { StackHeader } from "@/entities/header";
+import { StackHeader } from "@/shared/ui/Header";
 import { Typography } from "@/shared/ui/Typography";
 
 const Timer = () => {

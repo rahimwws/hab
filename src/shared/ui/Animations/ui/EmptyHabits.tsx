@@ -45,7 +45,7 @@ const EmptyHabits = () => {
           marginBottom: -20,
         }}
       >
-        <LargeButton text="Create Habit" isRoute={false} />
+        <LargeButton text="Create Habit" isRoute route="Edit" />
       </View>
     </>
   );

@@ -19,6 +19,7 @@ const Input = ({
   onChangeText,
   action,
   error = false,
+  defaultValue = "",
 }: {
   placeholder: string;
   styles?: StyleProp<TextStyle>;
@@ -27,6 +28,7 @@ const Input = ({
   onChangeText?: (text: string) => void;
   action?: any;
   error?: boolean;
+  defaultValue?: string;
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(
     !password
@@ -67,6 +69,7 @@ const Input = ({
         secureTextEntry={password && !isPasswordVisible}
         onChangeText={onChangeText}
         onEndEditing={action}
+        defaultValue={defaultValue}
       />
       {password && (
         <TouchableOpacity

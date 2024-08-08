@@ -2,21 +2,21 @@ import { View, Text } from "react-native";
 import React from "react";
 import { Typography } from "@/shared/ui/Typography";
 import { Todo } from "@/shared/assets";
+import { Habit } from "@/entities/habit/model/types";
 
-const DetailHeader = ({
-  remain,
-  total,
-  name,
-  description,
-}: {
-  name: string;
-  description?: string;
-  remain: number;
-  total: number;
-}) => {
-  const completionPercentage = ((total - remain) / total) * 100;
+const DetailHeader = ({ habit }: { habit: Habit }) => {
+  const completionPercentage =
+    ((habit.total - habit.remain) / habit.total) * 100;
 
   const viewHeight = 150 * (completionPercentage / 100);
+  const calculateDaysBetween = (startDate: Date, endDate: Date): number => {
+    const oneDay = 24 * 60 * 60 * 1000; // milliseconds in one day
+    return Math.round(
+      Math.abs(
+        (new Date(endDate).getTime() - new Date(startDate).getTime()) / oneDay
+      )
+    );
+  };
   return (
     <View
       style={{
@@ -24,10 +24,10 @@ const DetailHeader = ({
       }}
     >
       <Typography align="left" font="p-sb" size={24}>
-        {name}
+        {habit.name} {habit.emoji}
       </Typography>
       <Typography align="left" color="gray400">
-        {description}
+        {habit.description}
       </Typography>
       <View
         style={{
@@ -94,7 +94,7 @@ const DetailHeader = ({
             }}
           >
             <Typography align="left" size={20} font="p-m">
-              21 days
+              {calculateDaysBetween(habit.startDate, habit.endDate)} days
             </Typography>
             <Typography align="left" color="gray400">
               Period

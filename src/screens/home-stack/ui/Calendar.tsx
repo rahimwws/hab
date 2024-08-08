@@ -1,6 +1,6 @@
 import React from "react";
 import { ScreenContent } from "@/shared/ui/ScreenContent";
-import { StackHeader } from "@/entities/header";
+import { StackHeader } from "@/shared/ui/Header";
 import { HabitChart, HabitStatistic } from "@/entities/statistics";
 import { CalendarComponent } from "@/features/calendar";
 import { ScrollView } from "react-native";

@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { habitsService } from "../../model/routes";
 import { isAxiosError } from "axios";
+import { EditHabit, Habit } from "@/entities/habit/model/types";
 
 export const useStatus = (id: number) => {
   return useMutation({
@@ -9,7 +10,6 @@ export const useStatus = (id: number) => {
       habitsService.changeStatus(id, status),
   });
 };
-
 export const useTimerLeft = () => {
   return useMutation({
     mutationKey: ["timerLeft"],

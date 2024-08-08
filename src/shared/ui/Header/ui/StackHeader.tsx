@@ -20,7 +20,7 @@ const StackHeader = ({
     <View
       style={{
         zIndex: 1,
-        marginTop: "2%",
+        marginTop: "3%",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: align,

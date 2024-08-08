@@ -1,6 +1,6 @@
 import { client } from "@/shared/api";
 import { Journey } from "../types";
-import { Habit } from "@/entities/habit/model/types/Habit";
+import { Habit } from "@/entities/habit/model/types";
 
 export const journeyService = {
   async get() {
